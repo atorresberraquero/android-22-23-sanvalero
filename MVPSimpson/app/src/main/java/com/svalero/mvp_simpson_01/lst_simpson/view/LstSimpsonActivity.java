@@ -5,10 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.svalero.mvp_simpson_01.Entities.pojo.Simpson;
 import com.svalero.mvp_simpson_01.R;
 import com.svalero.mvp_simpson_01.lst_simpson.LstSimpsonContract;
-
+import com.svalero.mvp_simpson_01.lst_simpson.model.pojo.Simpson;
 import com.svalero.mvp_simpson_01.lst_simpson.presenter.LstSimpsonPresenter;
 
 import java.util.ArrayList;
@@ -30,18 +29,14 @@ public class LstSimpsonActivity extends AppCompatActivity
 
     }
     public void initPresenter(){
-        lstSimpsonPresenter = new LstSimpsonPresenter(this) {
-            @Override
-            public void lstSimpson(Simpson simpson) {
-
-            }
-        };
+        lstSimpsonPresenter = new LstSimpsonPresenter(this);
     }
     public void initData(){
         lstSimpsonPresenter.lstSimpson(null); //SELECT * FROM SIMPSON
     }
 
 
+    @Override
     public void successLstSimpson(ArrayList<Simpson> lstSimpson) {
         // ADAPTER. NOTIFY SET DATA CHANGED
     }
